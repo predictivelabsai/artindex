@@ -1,0 +1,6 @@
+python-fasthtml
+plotly
+pandas
+numpy
+psycopg2-binary
+python-dotenv
