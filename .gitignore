@@ -3,6 +3,14 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Screenshots and Playwright snapshots
+*.png
+*.jpg
+*.jpeg
+*_snapshot.md
+.sesskey
+.playwright-mcp/
+
 # C extensions
 *.so
 
