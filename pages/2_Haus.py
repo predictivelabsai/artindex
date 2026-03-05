@@ -9,7 +9,7 @@ st.header('Haus Gallery Auctions - Map of Art Market')
 
 st.subheader('Total sales by artist and overbidding amount')
 
-df = pd.read_csv('allee_clean.csv')
+df = pd.read_csv('data/allee_clean.csv')
 df['overbid_%'] = (df['end_price'] - df['start_price'])/df['start_price'] * 100
 df['art_work_age'] = df['date'] - df['year']
 df2 = df.groupby(['author', 'tech', 'category']).agg({'end_price':['sum'], 'overbid_%':['mean']})
