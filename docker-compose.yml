@@ -1,8 +1,8 @@
 services:
   app:
     build: .
-    ports:
-      - "8502:8501"
+    expose:
+      - "8501"
     environment:
       - DB_URL=${DB_URL}
     restart: unless-stopped
