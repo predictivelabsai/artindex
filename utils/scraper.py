@@ -2,7 +2,7 @@
 import asyncio
 import re
 from playwright.async_api import async_playwright
-from db import init_db, insert_lots
+from utils.db import init_db, insert_lots
 
 ALLEE_BASE = "https://alleegalerii.ee"
 ALLEE_AUCTION_URL = f"{ALLEE_BASE}/kunstioksjon/"

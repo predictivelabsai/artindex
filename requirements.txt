@@ -1,4 +1,4 @@
-python-fasthtml
+streamlit
 plotly
 pandas
 numpy

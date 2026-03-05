@@ -12,7 +12,7 @@ def get_conn():
     return psycopg2.connect(DB_URL)
 
 def init_db():
-    schema_sql = (Path(__file__).parent / "sql" / "schema.sql").read_text()
+    schema_sql = (Path(__file__).parent.parent / "sql" / "schema.sql").read_text()
     with get_conn() as conn:
         with conn.cursor() as cur:
             cur.execute(schema_sql)
@@ -105,7 +105,7 @@ def fetch_lots(provider: str | None = None):
 if __name__ == "__main__":
     print("Initializing database...")
     init_db()
-    csv_path = Path(__file__).parent / "data" / "allee_clean.csv"
+    csv_path = Path(__file__).parent.parent / "data" / "allee_clean.csv"
     if csv_path.exists():
         n = load_csv(str(csv_path), "allee")
         print(f"Imported {n} rows from allee_clean.csv")

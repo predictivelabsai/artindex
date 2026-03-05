@@ -9,7 +9,7 @@ python = "^3.10"
 numpy = ">=1.24"
 pandas = ">=1.5"
 plotly = ">=5.13"
-python-fasthtml = "*"
+streamlit = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
 
