@@ -8,8 +8,21 @@ load_dotenv()
 
 DB_URL = os.environ["DB_URL"]
 
+class _ClosingConnection(psycopg2.extensions.connection):
+    """psycopg2's `with conn:` only commits/rolls back; this also closes it."""
+
+    def __exit__(self, exc_type, exc, tb):
+        try:
+            return super().__exit__(exc_type, exc, tb)
+        finally:
+            self.close()
+
+
 def get_conn():
-    return psycopg2.connect(DB_URL)
+    return psycopg2.connect(
+        DB_URL, connection_factory=_ClosingConnection,
+        application_name=os.getenv("DB_APPLICATION_NAME", "artindex"),
+    )
 
 def init_db():
     schema_sql = (Path(__file__).parent.parent / "sql" / "schema.sql").read_text()
